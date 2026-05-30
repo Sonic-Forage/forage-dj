@@ -59,7 +59,7 @@ def cmd_generate(args: argparse.Namespace) -> None:
     print(f"🎵 Generating: '{args.prompt}'  seed={args.seed}  dur={args.duration}s  model={args.model}")
     if args.dry:
         print("   (dry run — no actual generation)")
-        print("   Would call generate_track(...) and save to ~/.foragedj/generated/")
+        print("   Would call generate_track(...) and save inside the project (generated/ on Z: drive)")
         return
 
     try:

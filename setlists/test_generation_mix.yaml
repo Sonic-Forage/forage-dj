@@ -1,0 +1,15 @@
+name: "Test Generation Mix - Small + Medium + SFX"
+seed: 424242
+tracks:
+  - id: "01"
+    prompt: "driving bass house, rolling 808 bassline, crisp drums, 128bpm dark warehouse energy"
+    duration: 30
+    model: "small-music"
+  - id: "02"
+    prompt: "melodic techno breakdown with emotional pads and driving bass, 128bpm"
+    duration: 45
+    model: "medium"
+  - id: "03"
+    prompt: "heavy industrial impact, metallic resonance, cinematic whoosh, short dramatic sound effect"
+    duration: 8
+    model: "small-sfx"
