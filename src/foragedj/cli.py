@@ -18,9 +18,27 @@ from . import __version__
 from .utils import setup_logging
 
 def _print_banner() -> None:
-    print(f"🎧 forage-dj v{__version__} — Sonic Forage Autonomous DJ")
-    print("   https://github.com/Sonic-Forage/forage-dj")
-    print("   One prompt list + one seed = infinite unique performances")
+    print(r"""
+   ███████╗ ██████╗ ███╗   ██╗██╗ ██████╗
+   ██╔════╝██╔═══██╗████╗  ██║██║██╔════╝
+   ███████╗██║   ██║██╔██╗ ██║██║██║     
+   ╚════██║██║   ██║██║╚██╗██║██║██║     
+   ███████║╚██████╔╝██║ ╚████║██║╚██████╗
+   ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝
+
+   🎛️  SONIC FORAGE — Music Diffusion Workstation
+   """)
+    print(f"v{__version__} — Everything local on your drive. Editable. Live. Autonomous.")
+    print("https://github.com/Sonic-Forage/forage-dj")
+    print()
+    print("Choose your experience:")
+    print("  1. Autonomous DJ (curated, walk-away sets)")
+    print("  2. Workstation (edit, regenerate, inpaint regions)")
+    print("  3. Streamer Mode (Twitch/Kick ready + chat control)")
+    print("  4. Collective (share music, royalties, community)")
+    print("  5. Full Custom (build your own thing)")
+    print()
+    print("Or just run commands directly. Type `foragedj --help` anytime.")
 
 
 def cmd_version(args: argparse.Namespace) -> None:
@@ -344,6 +362,10 @@ def main(argv: list[str] | None = None) -> int:
             return 1
     else:
         _print_banner()
+        # Bad-ass first-boot guided experience
+        print("\nFirst time? Run:  uv run foragedj doctor --heal")
+        print("Ready to go live? Run: uv run foragedj stream-prep --twitch")
+        print("Want the full retro OS? Run: uv run foragedj os")
         parser.print_help()
 
     return 0
