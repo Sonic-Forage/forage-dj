@@ -1,16 +1,6 @@
 # forage-dj
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Sonic-Forage/forage-dj/main/assets/foragedj-logo.png" alt="ForageDJ Logo" width="400"/>
-</p>
-
-<h1 align="center">FORAGEDJ</h1>
-<p align="center">
-  <strong>Sonic Forage DJ</strong> — Open-source AI-powered autonomous DJ interface & DAW<br/>
-  <em>One Prompt. Infinite Sets.</em>
-</p>
-
-<p align="center">
   <a href="https://github.com/Sonic-Forage/forage-dj/issues"><img src="https://img.shields.io/github/issues/Sonic-Forage/forage-dj?style=for-the-badge&color=ff00aa" alt="Issues"/></a>
   <a href="https://github.com/Sonic-Forage/forage-dj"><img src="https://img.shields.io/github/stars/Sonic-Forage/forage-dj?style=for-the-badge&color=00ff9f" alt="Stars"/></a>
   <a href="https://github.com/Sonic-Forage/forage-dj/blob/main/docs/WHITEPAPER.md"><img src="https://img.shields.io/badge/White%20Paper-Read%20Now-9d4edd?style=for-the-badge" alt="White Paper"/></a>
