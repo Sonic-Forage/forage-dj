@@ -1,0 +1,110 @@
+{
+  "name": "Bassline Dominion - House Ignition (Seed 424242)",
+  "seed": 424242,
+  "manifest_path": "setlists/bassline_dominion_seed424242.yaml",
+  "generated_at": "2026-05-30T18:02:35.270227Z",
+  "total_tracks": 6,
+  "safety_note": "Public-safe rave tool \u2014 harm reduction first. forage-dj v0.1.0. Prompt provenance required.",
+  "tracks": [
+    {
+      "id": 1,
+      "prompt": "TrackType: Music, driving bass house, rolling 808 bassline, crisp UKG drums, energetic festival stabs, 128 BPM, dark warehouse energy",
+      "duration": 90,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "1_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:02:35.248462Z"
+    },
+    {
+      "id": 2,
+      "prompt": "TrackType: Music, bass house drop with heavy sub bass, punchy kicks, shuffled hi-hats, rising synth stabs, 128 BPM, high energy",
+      "duration": 75,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "2_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:02:35.253141Z"
+    },
+    {
+      "id": 3,
+      "prompt": "uplifting bass house breakdown, emotional pads, rolling bass, crisp percussion, 128 BPM, festival mainstage moment",
+      "duration": 60,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "3_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:02:35.257381Z"
+    },
+    {
+      "id": 4,
+      "prompt": "hard bass house drop, distorted 808 bass, industrial kicks, vocal chops, 130 BPM, peak time energy",
+      "duration": 80,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "4_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:02:35.262541Z"
+    },
+    {
+      "id": 5,
+      "prompt": "TrackType: Music, groovy bass house with funky bassline, swinging drums, filtered stabs, 126 BPM, late night dancefloor",
+      "duration": 85,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "5_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:02:35.266587Z"
+    },
+    {
+      "id": 6,
+      "prompt": "massive bass house finale, huge rolling bass, euphoric supersaw stabs, driving drums, 128 BPM, hands in the air moment",
+      "duration": 90,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "6_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:02:35.270213Z"
+    }
+  ],
+  "harmonic_suggestions": {
+    "1": [],
+    "2": [
+      1
+    ],
+    "3": [
+      1,
+      2
+    ],
+    "4": [
+      1,
+      2,
+      3
+    ],
+    "5": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "6": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}

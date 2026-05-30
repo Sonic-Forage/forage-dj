@@ -1,0 +1,43 @@
+{
+  "name": "Autonomous_Badass_Test_Session",
+  "created": "2026-05-30T20:19:56.816003",
+  "metadata": {},
+  "tracks": [
+    {
+      "id": "track_01",
+      "name": "1_424242",
+      "source_path": "libraries/Bassline_Dominion_-_House_Ignition_Seed_424242/1_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "regions": [
+        {
+          "id": "reg_001",
+          "start": 0.0,
+          "end": 40.0,
+          "prompt": "Auto section 1",
+          "seed": 42,
+          "notes": "",
+          "locked": false
+        },
+        {
+          "id": "reg_002",
+          "start": 40.0,
+          "end": 80.0,
+          "prompt": "Auto section 2",
+          "seed": 43,
+          "notes": "",
+          "locked": false
+        },
+        {
+          "id": "reg_003",
+          "start": 80.0,
+          "end": 120.0,
+          "prompt": "Auto section 3",
+          "seed": 44,
+          "notes": "",
+          "locked": false
+        }
+      ]
+    }
+  ]
+}

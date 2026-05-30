@@ -33,23 +33,44 @@ env/
 models/
 *.safetensors
 *.bin
-~/.foragedj/
 
-# Audio
+# User cache (real path — tilde does not work in gitignore)
+.foragedj/
+# Also catch the literal ~/.foragedj if someone creates it by mistake
+**/.foragedj/
+
+# Hugging Face / torch hub caches (heavy)
+.cache/huggingface/
+.huggingface/
+torch_hub/
+
+# Audio (generated tracks are huge — keep only tiny test fixtures)
 *.wav
 *.mp3
 *.flac
 *.ogg
 !test_*.wav
+!fixtures/*.wav
 
-# IDE
+# IDE / tools
 .idea/
 .vscode/
 *.swp
+.ruff_cache/
+.mypy_cache/
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Grok session state (keep the plan + important notes, ignore temp artifacts)
+.grok/tmp/
+.grok/logs/
+.grok/agent-outputs/
+.grok/session-logs/
+.grok/hf-token.env   # never commit your HF token
+
+checkpoints/
 
 # Generated
 generated/

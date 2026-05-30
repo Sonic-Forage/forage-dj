@@ -1,0 +1,275 @@
+{
+  "name": "Bassline Dominion - House Ignition (Seed 424242)",
+  "seed": 424242,
+  "manifest_path": "setlists/bassline_dominion_seed424242.yaml",
+  "library_dir": "libraries/Bassline_Dominion_House_Ignition_Seed424242",
+  "generated_at": "2026-05-30T18:05:37.055552Z",
+  "total_tracks": 6,
+  "safety_note": "Public-safe rave tool \u2014 harm reduction first. forage-dj v0.1.0. Prompt provenance required.",
+  "tracks": [
+    {
+      "id": "01",
+      "prompt": "TrackType: Music, driving bass house, rolling 808 bassline, crisp UKG drums, energetic festival stabs, 128 BPM, dark warehouse energy",
+      "duration": 90,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "01_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:05:37.030804Z"
+    },
+    {
+      "id": "02",
+      "prompt": "TrackType: Music, bass house drop with heavy sub bass, punchy kicks, shuffled hi-hats, rising synth stabs, 128 BPM, high energy",
+      "duration": 75,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "02_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:05:37.035843Z"
+    },
+    {
+      "id": "03",
+      "prompt": "uplifting bass house breakdown, emotional pads, rolling bass, crisp percussion, 128 BPM, festival mainstage moment",
+      "duration": 60,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "03_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:05:37.040788Z"
+    },
+    {
+      "id": "04",
+      "prompt": "hard bass house drop, distorted 808 bass, industrial kicks, vocal chops, 130 BPM, peak time energy",
+      "duration": 80,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "04_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:05:37.045692Z"
+    },
+    {
+      "id": "05",
+      "prompt": "TrackType: Music, groovy bass house with funky bassline, swinging drums, filtered stabs, 126 BPM, late night dancefloor",
+      "duration": 85,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "05_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:05:37.050737Z"
+    },
+    {
+      "id": "06",
+      "prompt": "massive bass house finale, huge rolling bass, euphoric supersaw stabs, driving drums, 128 BPM, hands in the air moment",
+      "duration": 90,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "06_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T18:05:37.055402Z"
+    }
+  ],
+  "harmonic_suggestions": {
+    "01": [
+      "02",
+      "03",
+      "04",
+      "05",
+      "06"
+    ],
+    "02": [
+      "01",
+      "03",
+      "04",
+      "05",
+      "06"
+    ],
+    "03": [
+      "01",
+      "02",
+      "04",
+      "05",
+      "06"
+    ],
+    "04": [
+      "01",
+      "02",
+      "03",
+      "05",
+      "06"
+    ],
+    "05": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "06"
+    ],
+    "06": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05"
+    ]
+  },
+  "energy_estimates": {
+    "01": 0.52,
+    "02": 0.76,
+    "03": 0.2,
+    "04": 0.95,
+    "05": 0.22,
+    "06": 0.95
+  },
+  "recommended_transitions": {
+    "01": [
+      {
+        "to": "02",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 1.06,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.24
+      },
+      {
+        "to": "04",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 0.94,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.43
+      },
+      {
+        "to": "06",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 0.94,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.43
+      }
+    ],
+    "02": [
+      {
+        "to": "04",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 1.09,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.19
+      },
+      {
+        "to": "06",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 1.09,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.19
+      },
+      {
+        "to": "01",
+        "reason": "Camelot 8A\u21928A + energy drop/break",
+        "score": 0.86,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.24
+      }
+    ],
+    "03": [
+      {
+        "to": "05",
+        "reason": "Camelot 8A\u21928A + energy steady",
+        "score": 1.19,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.02
+      },
+      {
+        "to": "01",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 1.01,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.32
+      },
+      {
+        "to": "02",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 0.86,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.56
+      }
+    ],
+    "04": [
+      {
+        "to": "06",
+        "reason": "Camelot 8A\u21928A + energy steady",
+        "score": 1.2,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.0
+      },
+      {
+        "to": "02",
+        "reason": "Camelot 8A\u21928A + energy drop/break",
+        "score": 0.89,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.19
+      },
+      {
+        "to": "01",
+        "reason": "Camelot 8A\u21928A + energy drop/break",
+        "score": 0.74,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.43
+      }
+    ],
+    "05": [
+      {
+        "to": "01",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 1.02,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.3
+      },
+      {
+        "to": "03",
+        "reason": "Camelot 8A\u21928A + energy steady",
+        "score": 0.99,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.02
+      },
+      {
+        "to": "02",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 0.88,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.54
+      }
+    ],
+    "06": [
+      {
+        "to": "04",
+        "reason": "Camelot 8A\u21928A + energy steady",
+        "score": 1.2,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.0
+      },
+      {
+        "to": "02",
+        "reason": "Camelot 8A\u21928A + energy drop/break",
+        "score": 0.89,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.19
+      },
+      {
+        "to": "01",
+        "reason": "Camelot 8A\u21928A + energy drop/break",
+        "score": 0.74,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.43
+      }
+    ]
+  }
+}

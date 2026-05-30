@@ -76,9 +76,11 @@ Create `src/foragedj/setlist.py`
 
 ---
 
-**Current Status**: Phase 0 ready to start.
+**Current Status**: ✅ Phase 0 (Environment + Hygiene) **COMPLETE** (2026-05).
 
-**Next action for you**: Begin Phase 0 now.
+`uv sync --extra gui --group dev` now succeeds on fresh clones (Linux/Ubuntu verified pattern).
+
+**Next action for you**: Claim a Phase 1 GitHub issue and start filling the stubs in `src/foragedj/` (audio_gen.py and mixer.py are the highest leverage). See `docs/AGENTIC_BUILD_PLAN.md`.
 
 When each phase is complete, update this file with [x] and commit.
 

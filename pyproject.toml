@@ -4,24 +4,52 @@ version = "0.1.0"
 description = "Sonic Forage AI-powered autonomous DJ interface/DAW"
 readme = "README.md"
 requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [
+    { name = "Sonic Forage Collective" },
+]
 dependencies = [
-    "stable-audio-3>=0.1",  # placeholder - actual from Stability-AI when released
+    # Core real-time audio + hardware foundation (MVP Phase 1 minimal set)
+    # NOTE: python-rtmixer removed from core — it has poor packaging / no recent wheels.
+    #       Real-time low-latency mixer will use sounddevice + pedalboard + threads
+    #       (more reliable across Python versions). rtmixer can return later as optional.
     "sounddevice>=0.4.6",
-    "python-rtmixer>=0.1.0",
     "pedalboard>=0.9.0",
     "librosa>=0.10.0",
+    "soundfile>=0.12.1",  # Required for reliable librosa loading (used by analysis, mixer, workstation auto-split)
     "mido>=1.3.0",
     "python-rtmidi>=1.5.0",
-    "faster-whisper>=1.0.0",
-    "demucs>=4.0.0",
-    "dearpygui>=1.11.0",
     "numpy>=1.26.0",
     "scipy>=1.13.0",
 ]
 
 [project.optional-dependencies]
-cuda = ["torch>=2.4.0", "torchaudio>=2.4.0"]
-cpu = ["torch>=2.4.0 --index-url https://download.pytorch.org/whl/cpu"]
+# GUI (Dear PyGui is fast native for potato machines — per ARCHITECTURE)
+gui = ["dearpygui>=1.11.0"]
+
+# Voice / STT (Phase 2+)
+voice = ["faster-whisper>=1.0.0"]
+
+# Stem separation (Phase 3+)
+stems = ["demucs>=4.0.0"]
+
+# Audio enhancement + TTS (new 2025 stack: FlashSR, AudioSR, LocalVQE, Kokoro)
+# Note: Kokoro also needs system package `espeak-ng` for phonemization.
+audio-tools = ["kokoro>=0.9.0"]  # soundfile is now core for analysis/workstation reliability
+
+# MIDI/OSC controllers + Resolume integration
+controllers = ["python-osc>=1.8.0"]
+
+# Full meta extra for convenience
+full = ["forage-dj[gui,voice,stems,audio-tools]"]
+os = [
+    "textual>=8.2.7",
+]
+
+# NOTE on generation (stable-audio-3):
+# This is intentionally NOT listed here. The official library is not on PyPI.
+# See scripts/setup.sh and docs/ for the recommended clone + editable install flow.
+# Runtime code in audio_gen.py will give a precise actionable error + instructions.
 
 [project.scripts]
 foragedj = "foragedj.cli:main"
@@ -30,8 +58,38 @@ foragedj = "foragedj.cli:main"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/foragedj"]
+
 [tool.uv]
 index-url = "https://pypi.org/simple"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/foragedj"]
+# Proper PyTorch CPU wheel support (fixes the old invalid cpu extra)
+# Usage: uv sync --extra gui --group dev
+# For CUDA users: manually `uv pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu126` then sync (or customize below)
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchaudio = { index = "pytorch-cpu" }
+
+[dependency-groups]
+dev = [
+    "ruff>=0.4.0",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "mypy>=1.10",
+    "huggingface-hub>=1.17.0",
+    "hf-transfer>=0.1.9",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]  # line length handled by formatter

@@ -1,0 +1,127 @@
+/mnt/z/IMF2045/forage-dj/.venv/lib/python3.12/site-packages/huggingface_hub/constants.py:277: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+forage-dj Checkpoint Downloader
+Project root: /mnt/z/IMF2045/forage-dj
+Checkpoints target: /mnt/z/IMF2045/forage-dj/checkpoints
+HF cache (should be on Z:): /mnt/z/IMF2045/forage-dj/.cache/huggingface
+
+=== Downloading stabilityai/stable-audio-3-small-music → stable-audio-3-small-music ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-small-music
+/mnt/z/IMF2045/forage-dj/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py:189: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+/mnt/z/IMF2045/forage-dj/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `snapshot_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]
+ERROR downloading stabilityai/stable-audio-3-small-music: 401 Client Error. (Request ID: Root=1-6a1b25f6-2fb202323a98aea75eeabc07;fa219f17-0a10-4e60-8c8b-91fed4eb549d)
+
+Cannot access gated repo for url https://huggingface.co/stabilityai/stable-audio-3-small-music/resolve/0fef1392cd842149a2b6d445e181c97608faac06/NOTICE.
+Access to model stabilityai/stable-audio-3-small-music is restricted. You must have access to it and be authenticated to access it. Please log in.
+You can re-run this script later - it is resumable.
+
+=== Downloading stabilityai/stable-audio-3-small-sfx → stable-audio-3-small-sfx ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-small-sfx
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]
+ERROR downloading stabilityai/stable-audio-3-small-sfx: 401 Client Error. (Request ID: Root=1-6a1b25f7-3e14f9a07a377c8f4bca7456;fc915d4b-2ef7-4236-8dfa-3417e313aeb7)
+
+Cannot access gated repo for url https://huggingface.co/stabilityai/stable-audio-3-small-sfx/resolve/ae12755283df9d62ca39a9b050a39a0b607b8c20/NOTICE.
+Access to model stabilityai/stable-audio-3-small-sfx is restricted. You must have access to it and be authenticated to access it. Please log in.
+You can re-run this script later - it is resumable.
+
+=== Downloading stabilityai/stable-audio-3-medium → stable-audio-3-medium ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-medium
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]
+ERROR downloading stabilityai/stable-audio-3-medium: 401 Client Error. (Request ID: Root=1-6a1b25f7-57934d1c1c95bd7b75718b6d;53b3ad0f-caed-43dd-8b8f-8465e6859c61)
+
+Cannot access gated repo for url https://huggingface.co/stabilityai/stable-audio-3-medium/resolve/71a346358b5c4c6ecb30cef5a31b6237946480d4/NOTICE.
+Access to model stabilityai/stable-audio-3-medium is restricted. You must have access to it and be authenticated to access it. Please log in.
+You can re-run this script later - it is resumable.
+
+=== Downloading stabilityai/stable-audio-3-optimized → stable-audio-3-optimized ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-optimized
+Fetching 34 files:   0%|          | 0/34 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 34 files:   3%|▎         | 1/34 [00:00<00:20,  1.64it/s]Fetching 34 files:  15%|█▍        | 5/34 [33:37<3:27:25, 429.15s/it]Fetching 34 files:  76%|███████▋  | 26/34 [35:30<08:22, 62.81s/it]  Fetching 34 files: 100%|██████████| 34/34 [35:30<00:00, 62.67s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-optimized
+
+=== Downloading stabilityai/SAME-S → SAME-S ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/SAME-S
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [00:01<00:02,  1.25s/it]Fetching 3 files:  67%|██████▋   | 2/3 [01:59<01:09, 69.98s/it]Fetching 3 files: 100%|██████████| 3/3 [01:59<00:00, 39.78s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/SAME-S
+
+=== Downloading stabilityai/SAME-L → SAME-L ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/SAME-L
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [00:01<00:02,  1.16s/it]Fetching 3 files:  67%|██████▋   | 2/3 [16:27<09:40, 580.68s/it]Fetching 3 files: 100%|██████████| 3/3 [16:27<00:00, 329.17s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/SAME-L
+
+=== All requested models processed ===
+Next steps:
+  1. Verify contents with: ls -lh checkpoints/
+  2. Run: uv run foragedj doctor   (will gain model status soon)
+  3. Start generating with locked setlists!
+it/s]Fetching 11 files:   9%|▉         | 1/11 [00:02<00:21,  2.11s/it]Fetching 11 files:  18%|█▊        | 2/11 [00:12<01:03,  7.00s/it]Fetching 11 files:  27%|██▋       | 3/11 [09:41<35:08, 263.57s/it]Fetching 11 files: 100%|██████████| 11/11 [09:41<00:00, 52.86s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-small-music
+
+=== Downloading stabilityai/stable-audio-3-small-sfx → stable-audio-3-small-sfx ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-small-sfx
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files:   9%|▉         | 1/11 [00:00<00:04,  2.26it/s]Fetching 11 files:  18%|█▊        | 2/11 [00:06<00:31,  3.46s/it]Fetching 11 files:  27%|██▋       | 3/11 [04:52<17:41, 132.63s/it]Fetching 11 files: 100%|██████████| 11/11 [04:52<00:00, 26.58s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-small-sfx
+
+=== Downloading stabilityai/stable-audio-3-medium → stable-audio-3-medium ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-medium
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files:   9%|▉         | 1/11 [00:00<00:04,  2.44it/s]Fetching 11 files:  18%|█▊        | 2/11 [00:01<00:07,  1.22it/s]Fetching 11 files:  27%|██▋       | 3/11 [12:17<44:50, 336.35s/it]Fetching 11 files: 100%|██████████| 11/11 [12:17<00:00, 67.01s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-medium
+
+=== Downloading stabilityai/stable-audio-3-optimized → stable-audio-3-optimized ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-optimized
+Fetching 34 files:   0%|          | 0/34 [00:00<?, ?it/s]Fetching 34 files:  35%|███▌      | 12/34 [00:00<00:00, 98.01it/s]Fetching 34 files:  76%|███████▋  | 26/34 [00:00<00:00, 108.24it/s]Fetching 34 files: 100%|██████████| 34/34 [00:00<00:00, 107.91it/s]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/stable-audio-3-optimized
+
+=== Downloading stabilityai/SAME-S → SAME-S ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/SAME-S
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 68.47it/s]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/SAME-S
+
+=== Downloading stabilityai/SAME-L → SAME-L ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/SAME-L
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 74.06it/s]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/SAME-L
+
+=== Downloading Sonic-Forage/nps-liminal-soundscapes-lora-v0-1 → loras/nps-liminal-soundscapes-lora-v0-1 ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/loras/nps-liminal-soundscapes-lora-v0-1
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  11%|█         | 1/9 [00:01<00:11,  1.46s/it]Fetching 9 files:  22%|██▏       | 2/9 [00:01<00:05,  1.35it/s]Fetching 9 files:  33%|███▎      | 3/9 [00:22<00:58,  9.69s/it]Fetching 9 files: 100%|██████████| 9/9 [00:22<00:00,  2.45s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/loras/nps-liminal-soundscapes-lora-v0-1
+
+=== Downloading Sonic-Forage/loopwyrm-sa3-lora-smoke-v0-1 → loras/loopwyrm-sa3-lora-smoke-v0-1 ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/loras/loopwyrm-sa3-lora-smoke-v0-1
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  12%|█▎        | 1/8 [00:04<00:34,  4.95s/it]Fetching 8 files:  38%|███▊      | 3/8 [00:06<00:09,  1.89s/it]Fetching 8 files:  50%|█████     | 4/8 [00:15<00:17,  4.31s/it]Fetching 8 files: 100%|██████████| 8/8 [00:15<00:00,  1.93s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/loras/loopwyrm-sa3-lora-smoke-v0-1
+
+=== Downloading Sonic-Forage/didgeridoo-earth-drone-medium-v1-merged-comfy-checkpoint → checkpoints/didgeridoo-earth-drone-medium-v1-merged ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/checkpoints/didgeridoo-earth-drone-medium-v1-merged
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [00:00<00:02,  1.27it/s]Fetching 4 files:  50%|█████     | 2/4 [07:46<09:08, 274.42s/it]Fetching 4 files: 100%|██████████| 4/4 [07:46<00:00, 116.69s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/checkpoints/didgeridoo-earth-drone-medium-v1-merged
+
+=== Downloading Sonic-Forage/didgeridoo-earth-drone-medium-v1-standard-comfy-lora → loras/didgeridoo-earth-drone-medium-v1-standard ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/loras/didgeridoo-earth-drone-medium-v1-standard
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  1.09it/s]Fetching 2 files: 100%|██████████| 2/2 [00:59<00:00, 34.78s/it]Fetching 2 files: 100%|██████████| 2/2 [00:59<00:00, 29.70s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/loras/didgeridoo-earth-drone-medium-v1-standard
+
+=== Downloading Sonic-Forage/dramabox-nasa-radio-talk-lora → loras/dramabox-nasa-radio-talk-lora ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/loras/dramabox-nasa-radio-talk-lora
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files:  10%|█         | 1/10 [00:03<00:29,  3.24s/it]Fetching 10 files:  20%|██        | 2/10 [04:10<19:32, 146.58s/it]Fetching 10 files: 100%|██████████| 10/10 [04:10<00:00, 25.02s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/loras/dramabox-nasa-radio-talk-lora
+
+=== Downloading Sonic-Forage/ltx23-sonic-forage-sfx-drops-lora-v1 → loras/ltx23-sonic-forage-sfx-drops-lora-v1 ===
+Target: /mnt/z/IMF2045/forage-dj/checkpoints/loras/ltx23-sonic-forage-sfx-drops-lora-v1
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]Fetching 17 files:   6%|▌         | 1/17 [00:24<06:34, 24.67s/it]Fetching 17 files: 100%|██████████| 17/17 [00:24<00:00,  1.45s/it]
+✓ Finished: /mnt/z/IMF2045/forage-dj/checkpoints/loras/ltx23-sonic-forage-sfx-drops-lora-v1
+
+================================================================
+DOWNLOAD SUMMARY
+================================================================
+Traceback (most recent call last):
+  File "/mnt/z/IMF2045/forage-dj/scripts/download_checkpoints.py", line 199, in <module>
+    main()
+  File "/mnt/z/IMF2045/forage-dj/scripts/download_checkpoints.py", line 159, in main
+    print(f"Total models: {len(MODELS)}")
+                               ^^^^^^
+NameError: name 'MODELS' is not defined

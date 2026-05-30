@@ -26,21 +26,66 @@ Built on the Sonic Forage mycelium: safety gates, harm-reduction prompts, Ralph 
 
 **Fork it. Change the seed. Play it different every time.** 🍓🎛️
 
-## Quick Start (MVP Foundation)
+## Quick Start (Environment Fixed — Phase 0 Complete)
 
 ```bash
 # Clone
- git clone https://github.com/Sonic-Forage/forage-dj.git
- cd forage-dj
+git clone https://github.com/Sonic-Forage/forage-dj.git
+cd forage-dj
 
-# Setup (uv recommended - matches your other Sonic-Forage repos)
- uv sync --extra cpu   # or --extra cuda for GPU
+# One-shot setup — works on Linux + Windows (recommended)
+python scripts/install.py
+# or
+python scripts/install.py --full
 
-# Run (placeholder — full MVP coming via swarm)
- uv run foragedj
+# Legacy convenience (still works)
+# ./scripts/setup.sh          (Linux/mac)
+# powershell -File scripts/setup.ps1   (Windows)
+
+# Verify everything (run this first on any machine)
+uv run foragedj doctor
+
+# Play with the CLI immediately
+uv run foragedj --help
+uv run foragedj generate "dark techno 128bpm" --seed 42 --dry
 ```
 
-**Current Status**: White paper + full research + agentic plan + badass logo complete. Phase 1 (2-deck + gen + mixer + seed control) in active swarm development.
+**⚠️ Model Access Required (Gated HF Repos)**: Stability Audio 3 models need one-time license acceptance + HF_TOKEN.  
+See **[docs/MODEL_ACCESS.md](docs/MODEL_ACCESS.md)** and **[docs/INSTALL.md](docs/INSTALL.md)** for the exact steps + the recommended **potato machine offline workflow** using `scripts/download_checkpoints.py` + large-drive caching (cross-platform helpers in `.grok/hf-cache.env` + `.grok/hf-cache.ps1`).
+
+**Current Status** (May 2026):
+- ✅ Full models + all Sonic-Forage LoRAs downloaded locally on Z:
+- ✅ `foragedj download-models`, `generate-setlist`, `live`, `doctor --heal` all wired
+- ✅ **NEW**: `uv run python -m foragedj.os` — Boot the full retro Music Diffusion Operating System (old-school terminal desktop UI)
+- Active autonomous development toward full DAW workstation + realtime agentic AI tools + custom MIDI/OSC controllers + video sync
+
+**Streaming & Going Live**
+
+The workstation is designed for real performances. See:
+- `docs/LIVE_STREAMING_GUIDE.md`
+- `docs/LAUNCH_AND_STREAMING_STRATEGY.md`
+- `uv run foragedj stream-prep --obs --twitch`
+
+**Try the OS interface right now:**
+```bash
+uv run python -m foragedj.os
+```
+
+Logos live in `assets/logos/` (main root on Z: drive).
+
+### Deploy on RunPod (Cloud GPUs)
+
+See the full guide: `docs/RUNPOD_DEPLOYMENT.md`
+
+Quick start:
+- Use a Network Volume for `checkpoints/` + libraries (models are large).
+- Follow the manual steps or use the skill in `skills/runpod-forage-dj/SKILL.md` with any compatible AI agent.
+- Future: `python scripts/runpod_deploy.py` will take your `RUNPOD_API_KEY` and boot a fully configured pod.
+
+See `docs/MISSION_GUIDE.md`, `docs/TERMINAL_DJ_IDE.md`, `docs/RESEARCH_DAW_CONTROLLERS_VISUALIZERS.md`, and `skills/runpod-forage-dj/SKILL.md`.
+- Full whitepaper, architecture, agentic build plan, NS7II mapping research, and testing guides ready for contributors
+
+See `docs/AGENTIC_BUILD_PLAN.md` and `agent/AGENT_START_HERE.md` to claim swarm tasks.
 
 ## Core Innovation: Setlist as Prompt Score + Seed Variation
 
@@ -91,7 +136,7 @@ Everything verified and embedded:
 - **Daydream DEMON** (2026) — Real-time 25Hz diffusion (we differentiate: batch + mix + setlist scores for accessibility).
 - Mixxx + existing NS7II mappings, AudioSR, Demucs, CHI 2026 live music agents paper, ProGress structured diffusion, Sony LLM2Fx-Tools, responsible AI reviews.
 
-Full notes: [RESEARCH_SUMMARY.md](docs/RESEARCH_SUMMARY.md) | [WHITEPAPER.md](docs/WHITEPAPER.md) | [ARCHITECTURE.md](docs/ARCHITECTURE.md)
+Full notes: [RESEARCH_SUMMARY.md](docs/RESEARCH_SUMMARY.md) | [MODEL_ACCESS.md](docs/MODEL_ACCESS.md) | [WHITEPAPER.md](docs/WHITEPAPER.md) | [ARCHITECTURE.md](docs/ARCHITECTURE.md)
 
 ## Agentic Build Plan & Swarm
 

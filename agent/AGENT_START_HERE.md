@@ -20,14 +20,17 @@ Build a working MVP of ForageDJ:
 
 ---
 
-## 📂 REPO STATE (as of now)
+## 📂 REPO STATE (Phase 0 Complete — Environment Ready)
 
-- README cleaned (logo removed temporarily)
-- Full whitepaper + research in `docs/`
-- Architecture, features spec, hardware notes ready
-- 4 open swarm issues for Phase 1
-- pyproject.toml with all dependencies
-- No core code written yet (perfect starting point)
+- ✅ Working `uv sync` (fixed pyproject.toml, torch CPU indexes, removed non-existent stable-audio-3 pypi dep, proper extras/groups)
+- ✅ Full module scaffolding + rich CLI (`foragedj doctor`, generate, gui, mix, midi-learn)
+- ✅ scripts/setup.sh (one-shot bootstrap for humans + agents)
+- Full whitepaper + research + architecture + agentic plan in `docs/`
+- 4 open swarm issues for Phase 1 still active (claim them!)
+- LICENSE, .python-version, improved .gitignore, tests/ skeleton in place
+- Core imports now succeed after base `uv sync --extra gui --group dev`
+
+Perfect handoff point for swarm agents.
 
 ---
 
@@ -54,15 +57,15 @@ Build a working MVP of ForageDJ:
 
 ---
 
-## 🎯 SUCCESS CRITERIA (MVP v0.1)
+## 🎯 SUCCESS CRITERIA (MVP v0.1 — Phase 0 Done, Phase 1 Active)
 
-- [ ] `uv sync` completes without errors
-- [ ] `uv run foragedj` launches a simple interface
-- [ ] User can enter a prompt + seed and generate a 30–60s track
-- [ ] Two tracks can be loaded and mixed live (volume + crossfader)
-- [ ] Basic EQ/filter works in real time
-- [ ] Code runs on CPU-only machine
-- [ ] All changes committed and pushed
+- [x] `uv sync` completes cleanly + `uv run foragedj doctor` passes core checks
+- [x] Full module scaffolding + rich CLI with subcommands (`generate`, `doctor`, `gui`, etc.)
+- [ ] User can enter a prompt + seed and generate a real 30–60s track (Phase 1 swarm)
+- [ ] Two tracks loaded + mixed live with EQ/filter/crossfader (Phase 1)
+- [ ] NS7II MIDI + voice (Phase 2)
+- [ ] Code runs great on CPU-only potato machines
+- [ ] Swarm agents delivering PRs against the 4 GitHub issues
 
 ---
 

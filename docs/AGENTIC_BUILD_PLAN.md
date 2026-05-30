@@ -9,7 +9,17 @@ Each phase has:
 - Handoff notes for next phase
 - Safety / culture gates (Sonic Forage style)
 
-**Current Status**: Repo foundation complete. Start with Phase 0 if needed, then Phase 1.
+**Current Status**: ✅ Phase 0 (Repo Hygiene & Environment) **COMPLETE**.
+
+- Fixed `pyproject.toml` (no more broken stable-audio-3 pypi dep or invalid torch extras)
+- Proper uv indexes + dependency groups
+- `scripts/setup.sh` + `foragedj doctor` + rich CLI
+- Full source scaffolding matching the architecture
+- `.python-version`, LICENSE, improved gitignore, etc.
+
+See updated README Quick Start and `agent/AGENT_START_HERE.md`.
+
+Start with Phase 1 swarm tasks (GitHub issues #1–4).
 
 ---
 
@@ -25,7 +35,7 @@ Each phase has:
 5. Add GitHub Actions for basic lint/test (optional for MVP).
 6. Update README with exact `uv sync` command once deps are set.
 
-**Acceptance**: `uv sync` succeeds on fresh clone, `uv run foragedj --help` works (even if placeholder).
+**Acceptance (Phase 0)**: ✅ `uv sync --extra gui --group dev` succeeds, `uv run foragedj doctor` passes core checks, `uv run foragedj generate "..." --dry` works, all core imports succeed, `scripts/setup.sh` exists and is the recommended path. (Achieved May 2026)
 
 **Handoff**: Ready for core development.
 

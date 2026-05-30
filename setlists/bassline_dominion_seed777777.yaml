@@ -1,0 +1,52 @@
+# Forage House: Bassline Dominion
+# Alternate Universe Edition — Seed 777777
+#
+# Same structural concept as the 424242 version, but a completely different sonic realization
+# because the seed is entirely different. This is the power of setlist-as-score + seed variation.
+
+name: "Bassline Dominion - Alternate Universe (Seed 777777)"
+seed: 777777
+version: 1
+theme: "Bass House / UKG / Driving 4x4 energy (different universe)"
+description: |
+  The same setlist "score" as the 424242 version, but rendered with seed 777777.
+  Expect different bass textures, stab timbres, drum feels, and arrangement details
+  while keeping the overall energy arc and structure.
+
+tracks:
+  - id: 01
+    prompt: "TrackType: Music, driving bass house, rolling 808 bassline, crisp UKG drums, energetic festival stabs, 128 BPM, dark warehouse energy"
+    duration: 90
+    model: "small-music"
+
+  - id: 02
+    prompt: "TrackType: Music, bass house drop with heavy sub bass, punchy kicks, shuffled hi-hats, rising synth stabs, 128 BPM, high energy"
+    duration: 75
+    model: "small-music"
+
+  - id: 03
+    prompt: "uplifting bass house breakdown, emotional pads, rolling bass, crisp percussion, 128 BPM, festival mainstage moment"
+    duration: 60
+    model: "small-music"
+
+  - id: 04
+    prompt: "hard bass house drop, distorted 808 bass, industrial kicks, vocal chops, 130 BPM, peak time energy"
+    duration: 80
+    model: "small-music"
+
+  - id: 05
+    prompt: "TrackType: Music, groovy bass house with funky bassline, swinging drums, filtered stabs, 126 BPM, late night dancefloor"
+    duration: 85
+    model: "small-music"
+
+  - id: 06
+    prompt: "massive bass house finale, huge rolling bass, euphoric supersaw stabs, driving drums, 128 BPM, hands in the air moment"
+    duration: 90
+    model: "small-music"
+
+metadata:
+  total_duration_minutes: ~8
+  recommended_bpm_range: "126-130"
+  harmonic_focus: "Mostly minor keys for dark rolling energy with occasional major lifts"
+  safety_note: "Public-safe rave tool — harm reduction first. Prompt provenance embedded."
+  note: "Completely different realization from seed 424242 version due to different locked seed."
