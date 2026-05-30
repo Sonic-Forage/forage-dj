@@ -72,6 +72,8 @@ Thumbs.db
 
 checkpoints/
 
+hf-cache.env
+
 # Generated
 generated/
 logs/
