@@ -17,7 +17,7 @@ import logging
 import re
 import time
 from dataclasses import dataclass, asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -176,8 +176,8 @@ def generate_setlist(
 
         if dry:
             if not skip_gen:
-                final_path.touch()
-            # Fake but consistent analysis values for tests/docs
+                # Do not create 0-byte placeholder files — they confuse DJ software
+                print(f"    [dry] Would generate {final_name}")
             bpm, key, camelot = 128.0, "Am", "8A"
         else:
             if skip_gen:
@@ -215,7 +215,7 @@ def generate_setlist(
             bpm=bpm,
             key=key,
             camelot=camelot,
-            generated_at=datetime.utcnow().isoformat() + "Z",
+            generated_at=datetime.now(timezone.utc).isoformat(),
         )
         tracks.append(result)
 
@@ -279,7 +279,7 @@ def generate_setlist(
         seed=seed,
         manifest_path=str(manifest_path),
         library_dir=str(library_dir),
-        generated_at=datetime.utcnow().isoformat() + "Z",
+        generated_at=datetime.now(timezone.utc).isoformat(),
         tracks=tracks,
         harmonic_suggestions=harmonic_suggestions,
         energy_estimates=energy_estimates,

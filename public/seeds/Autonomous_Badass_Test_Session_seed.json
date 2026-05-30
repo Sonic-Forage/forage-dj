@@ -1,0 +1,43 @@
+{
+  "type": "generative_seed",
+  "name": "Autonomous_Badass_Test_Session",
+  "released": "2026-05-30T20:55:32.349256Z",
+  "prompts": [
+    ""
+  ],
+  "manifest": {
+    "type": "session",
+    "name": "Autonomous_Badass_Test_Session",
+    "tracks": [
+      {
+        "file": "libraries/Bassline_Dominion_-_House_Ignition_Seed_424242/1_424242.wav",
+        "bpm": 128.0,
+        "key": "Am",
+        "regions": [
+          {
+            "prompt": "Auto section 1",
+            "seed": 42,
+            "start": 0.0,
+            "end": 40.0
+          },
+          {
+            "prompt": "Auto section 2",
+            "seed": 43,
+            "start": 40.0,
+            "end": 80.0
+          },
+          {
+            "prompt": "Auto section 3",
+            "seed": 44,
+            "start": 80.0,
+            "end": 120.0
+          }
+        ]
+      }
+    ],
+    "analyzed_at": "2026-05-30T20:55:32.303047Z",
+    "swarm_notes": "Autonomously analyzed by Swarm Distribution App"
+  },
+  "license": "Creative Commons \u2014 feel free to grow your own forest",
+  "philosophy": "Release seeds. Let the culture spread. Some will come back."
+}

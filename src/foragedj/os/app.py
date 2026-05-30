@@ -74,6 +74,7 @@ class Desktop(Screen):
                 yield Button("🔊  Enhancer", id="enhancer", variant="primary")
                 yield Button("🗣️  Voice Lab", id="voicelab", variant="success")
                 yield Button("🎚️  Workstation", id="workstation", variant="primary")
+                yield Button("▶️  Media Player", id="player", variant="success")
                 yield Button("⚙️  System", id="system", variant="default")
         yield Footer()
 
@@ -92,6 +93,8 @@ class Desktop(Screen):
             self.app.push_screen(VoiceLabScreen())
         elif event.button.id == "workstation":
             self.app.push_screen(WorkstationScreen())
+        elif event.button.id == "player":
+            self.app.push_screen(MediaPlayerScreen())
         # Add more screens as we build them
 
 
@@ -234,6 +237,37 @@ class WorkstationScreen(Screen):
             print("\n[Workstation] Launching the bad-ass visual arranger demo...\n")
             self.app.exit()
             os.system("uv run foragedj workstation-view \"Test_Ableton_Style_Session\" 2>/dev/null || uv run python -c 'from src.foragedj.workstation import Session, render_session_arrangement; s=Session(name=\"QuickDemo\"); t=s.add_track(\"/mnt/z/IMF2045/forage-dj/libraries/Bassline_Dominion_House_Ignition_Seed424242/01_424242.wav\"); t.add_region(0,16,\"Intro pads\"); t.add_region(16,32,\"Main groove\"); render_session_arrangement(s)' || true")
+        if event.key == "escape":
+            self.app.pop_screen()
+
+
+class MediaPlayerScreen(Screen):
+    """Media Player — region playback, transport, and performance mode."""
+
+    def compose(self) -> ComposeResult:
+        yield Header()
+        content = (
+            "▶️  SONIC FORAGE MEDIA PLAYER\n\n"
+            "The actual playback engine for the workstation.\n\n"
+            "Current capabilities (growing fast):\n"
+            "  • Play any region from a session\n"
+            "  • Loop regions\n"
+            "  • Basic transport (stop)\n\n"
+            "Example commands:\n"
+            "  foragedj play-region \"MySession\" track_01 reg_003 --loop\n"
+            "  foragedj player-stop\n\n"
+            "Future: hotcues, stems, arrangement playback, recording, big transport view.\n\n"
+            "This is what will power live sets, the retro OS performance mode, and\n"
+            "autonomous Docker scheduled shows.\n\n"
+            "Press P to test a quick region playback (if you have a session with regions)."
+        )
+        yield Static(content, id="content")
+        yield Footer()
+
+    def on_key(self, event) -> None:
+        if event.key.lower() == "p":
+            print("\n[Media Player] Demo playback not yet wired to a specific session in this screen.\n")
+            print("Try from terminal: foragedj play-region <session> <track> <region>")
         if event.key == "escape":
             self.app.pop_screen()
 

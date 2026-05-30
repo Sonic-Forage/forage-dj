@@ -400,5 +400,10 @@ def run_full_health_check(fix: bool = False) -> HealthReport:
         console.print("Run again with --heal if you want to attempt more repairs.")
     else:
         console.print("\n[bold green]✅ All systems look healthy (or were successfully repaired).[/bold green]")
+        # Underground rave prep flavor text (harm reduction culture)
+        console.print("\n[magenta]🌊 Rave Prep Check[/magenta]")
+        console.print("   Remember: PLUR is why we do this.")
+        console.print("   Drink water. Take care of your people. Give the music away when you can.")
+        console.print("   Stay hydrated, stay kind, and keep the underground alive. 💧❤️")
 
     return report

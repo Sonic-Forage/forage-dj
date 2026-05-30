@@ -20,7 +20,7 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -76,7 +76,7 @@ class Track:
 class Session:
     """A full workstation project (the Ableton .als equivalent)."""
     name: str
-    created: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    created: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     tracks: List[Track] = field(default_factory=list)
     metadata: Dict[str, Any] = field(default_factory=dict)
 
@@ -228,7 +228,7 @@ def regenerate_region(
     region.prompt = new_prompt
     region.seed = new_seed or region.seed
     region.source_file = out_path
-    region.notes = f"Regenerated with context at {datetime.utcnow().isoformat()}"
+    region.notes = f"Regenerated with context at {datetime.now(timezone.utc).isoformat()}"
 
     session.save()
     return out_path

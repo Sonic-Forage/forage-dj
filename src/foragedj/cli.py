@@ -343,6 +343,38 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--twitch", action="store_true", help="Print Twitch-specific tips (chat commands, etc.)")
     p.set_defaults(func=cmd_stream_prep)
 
+    p = sub.add_parser("tag-library", help="Make a generated library DJ-app friendly (rename files with BPM+Key, write rich sidecars)")
+    p.add_argument("library_dir", help="Path to a libraries/XXX folder")
+    p.set_defaults(func=cmd_tag_library)
+
+    # Fun underground rave prep mode (harm reduction culture baked in)
+    p = sub.add_parser("rave-prep", help="Underground rave preparation mode — system check + PLUR + harm reduction wisdom")
+    p.set_defaults(func=cmd_rave_prep)
+
+    # Swarm Distribution App (autonomous create → organize → analyze → compile → distribute + seed bombing)
+    p = sub.add_parser("swarm-distribute", help="Autonomous Swarm Distribution: create/organize/analyze/compile/distribute + seed bomb")
+    p.add_argument("--input", required=True, help="Path to session or library")
+    p.add_argument("--mode", default="full", choices=["full", "analyze", "compile", "distribute", "seed-bomb"])
+    p.add_argument("--seed-bomb", action="store_true", help="Also release generative seeds publicly")
+    p.set_defaults(func=cmd_swarm_distribute)
+
+    # Media Player commands (new bad-ass player layer)
+    p = sub.add_parser("play-region", help="Play a specific region from a workstation session (media player)")
+    p.add_argument("session", help="Session name or path")
+    p.add_argument("track", help="Track id (e.g. track_01)")
+    p.add_argument("region", help="Region id (e.g. reg_001)")
+    p.add_argument("--loop", action="store_true", help="Loop the region")
+    p.set_defaults(func=cmd_play_region)
+
+    p = sub.add_parser("player-stop", help="Stop media player playback")
+    p.set_defaults(func=cmd_player_stop)
+
+    # AI DJ Personalities (for autonomous sets, chat, promotional characters like "Rex")
+    p = sub.add_parser("dj-personalities", help="List or use AI DJ personalities (customizable roleplay scripts)")
+    p.add_argument("action", choices=["list", "show", "prompt"], help="list all, show one, or get prompt fragment")
+    p.add_argument("name", nargs="?", help="Personality name (e.g. Neon, Vapor, Pulse)")
+    p.set_defaults(func=cmd_dj_personalities)
+
     return parser
 
 
@@ -509,6 +541,167 @@ def cmd_stream_prep(args: argparse.Namespace) -> None:
     print("\nPro tip: Run everything after sourcing .grok/hf-cache.env for max speed.")
     print("Quality will keep improving as we add better models and editing features.")
     print("=" * 50)
+
+
+def cmd_tag_library(args: argparse.Namespace) -> None:
+    """Tag an existing library folder so the WAVs are friendly to Serato, Rekordbox, Traktor, Engine DJ, etc."""
+    from .utils import tag_wav_for_dj
+    import json
+
+    lib_dir = Path(args.library_dir)
+    if not lib_dir.exists():
+        print(f"Library not found: {lib_dir}")
+        return
+
+    print(f"🎛️  Tagging library for DJ apps: {lib_dir}")
+    print("   Renaming files to NN_Name_BPM_Key format + writing rich sidecars...")
+
+    json_path = lib_dir / "library.json"
+    tracks = {}
+    if json_path.exists():
+        data = json.loads(json_path.read_text())
+        tracks = {t.get("file", ""): t for t in data.get("tracks", [])}
+
+    tagged = 0
+    for wav in sorted(lib_dir.glob("*.wav")):
+        if wav.stat().st_size == 0:
+            print(f"   [skip] {wav.name} (0-byte placeholder)")
+            continue
+
+        info = tracks.get(wav.name, {})
+        title = info.get("prompt", "")[:60] or wav.stem
+        bpm = float(info.get("bpm", 0.0))
+        key = info.get("key", "")
+        camelot = info.get("camelot", "")
+
+        try:
+            new_path = tag_wav_for_dj(wav, title=title, bpm=bpm, key=key, camelot=camelot,
+                                      comment=info.get("prompt", ""))
+            print(f"   ✓ {wav.name} → {new_path.name}")
+            tagged += 1
+        except Exception as e:
+            print(f"   ✗ {wav.name}: {e}")
+
+    print(f"\n✅ Tagged {tagged} tracks.")
+    print("   Load the folder in your DJ software — you should now see BPM + Key in the filenames.")
+
+
+def cmd_rave_prep(args: argparse.Namespace) -> None:
+    """Underground rave preparation experience.
+    Runs the main system test (doctor) with harm reduction flavor,
+    PLUR reminders, and practical prep advice for throwing or attending proper events.
+    """
+    from .health import run_full_health_check
+
+    print("\n" + "=" * 60)
+    print("🌊  UNDERGROUND RAVE PREP MODE  🌊")
+    print("=" * 60)
+    print()
+    print("Before we check the machines, a reminder from the culture:")
+    print()
+    print("   P.L.U.R.  —  Peace  •  Love  •  Unity  •  Respect")
+    print()
+    print("This is why we build tools like this.")
+    print("This is why we give the music away at events.")
+    print("This is why we pass out water and donuts instead of just vibes.")
+    print()
+
+    # Run the actual main test (doctor) with heal
+    print("Running full system check with rave eyes...\n")
+    run_full_health_check(fix=True)
+
+    print("\n" + "-" * 60)
+    print("Practical Underground Prep Advice:")
+    print("-" * 60)
+    print("""
+• Drink water. Seriously. Set a timer if you have to.
+• Eat something before you go deep.
+• Look after your friends — and the strangers next to you.
+• If you're throwing the event: have a chill space, free water, and harm reduction info visible.
+• Test your rig *before* doors. Don't be the person debugging at 2am.
+• PLUR isn't just a slogan when the lights are off and the bass is heavy. It's the operating system.
+
+The machines are ready when you are.
+
+Now go make something beautiful, safe, and slightly illegal in spirit (even if it's fully permitted).
+""")
+    print("=" * 60)
+    print("Stay hydrated. Stay kind. Keep the underground alive.\n")
+
+
+def cmd_swarm_distribute(args: argparse.Namespace) -> None:
+    """Entry point for the autonomous Swarm Distribution App."""
+    import subprocess
+    cmd = [
+        "uv", "run", "python", "scripts/swarm_distributor.py",
+        "--input", args.input,
+        "--mode", args.mode
+    ]
+    if args.seed_bomb:
+        cmd.append("--seed-bomb")
+
+    print("🚀 Launching Swarm Distribution App...")
+    subprocess.run(cmd)
+
+
+def cmd_play_region(args: argparse.Namespace) -> None:
+    """Play a specific region using the new media player."""
+    from .player import media_player
+    from .workstation import Session
+
+    sess_dir = Path(args.session)
+    if not (sess_dir / "session.json").exists():
+        sess_dir = paths.get_sessions_dir() / args.session
+
+    session = Session.load(sess_dir)
+    media_player.load_session(session)
+    media_player.play_region(args.track, args.region, loop=args.loop)
+    print(f"▶️  Playing region {args.region} from {args.track} (loop={args.loop})")
+    print("   Use 'foragedj player-stop' to stop.")
+
+
+def cmd_player_stop(args: argparse.Namespace) -> None:
+    """Stop the media player."""
+    from .player import media_player
+    media_player.stop()
+    print("⏹️  Media player stopped.")
+
+
+def cmd_dj_personalities(args: argparse.Namespace) -> None:
+    """Interact with AI DJ personalities."""
+    from .personalities import load_personalities, get_personality, list_personalities
+
+    if args.action == "list":
+        print("Available AI DJ Personalities:")
+        for name in list_personalities():
+            print(f"  • {name}")
+        print("\nUse: foragedj dj-personalities show <name>")
+        print("Use: foragedj dj-personalities prompt <name>   (for AI system prompts)")
+
+    elif args.action == "show":
+        if not args.name:
+            print("Please provide a personality name.")
+            return
+        p = get_personality(args.name)
+        if not p:
+            print(f"Personality '{args.name}' not found.")
+            return
+        print(f"\n{p.dj_name}")
+        print(f"Vibe: {p.vibe}")
+        print(f"Loves: {', '.join(p.favorite_styles)}")
+        print(f"Dislikes: {', '.join(p.disliked_styles)}")
+        print(f"Personality: {p.personality}")
+        print(f"Catchphrases: {' | '.join(p.catchphrases)}")
+
+    elif args.action == "prompt":
+        if not args.name:
+            print("Please provide a personality name.")
+            return
+        p = get_personality(args.name)
+        if not p:
+            print(f"Personality '{args.name}' not found.")
+            return
+        print(p.get_prompt_fragment())
 
 
 # === STUBS for previously referenced commands (live, visualizer, osc) ===

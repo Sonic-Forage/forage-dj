@@ -54,11 +54,27 @@ A fully local, private, editable **Music Diffusion Operating System** that becom
 - Connections to bigger artists, labels, festival bookers.
 - Open source core + paid premium event tools.
 
+### Docker + Scheduled Autonomous Deployment (New)
+- Full containerized deployment for dedicated machines or tour rigs.
+- Smart entrypoint supports `SHOW_TIME=20:00` + `BOOT_EARLY_MINUTES=45` so the container wakes up with enough time to load huge models and prepare the set.
+- Perfect companion to the Swarm Distribution App and Event/Tour system.
+- See `docs/DOCKER_DEPLOYMENT.md` and `docker/` folder.
+
+### Swarm Distribution App (New Autonomous Engine)
+- Full pipeline: create (from workstation/sessions) → organize → analyze (deep harmonic/energy) → compile (DJ-tagged libraries) → distribute.
+- `foragedj swarm-distribute --input ... --mode full --seed-bomb`
+- **Seed Bombing**: Autonomously release generative seeds (prompt packs, manifests, tracks under CC) back into the world via IPFS/self-site to spread the culture virally.
+- Royalty/collective tracking built into session metadata.
+- Keeps "pumping it out" at volume so the only real limit becomes discovery and people buying/supporting (solved via seed bombing + events + direct sales).
+
+This is how we turn one person's creative output into a self-replicating, royalty-generating mycelium.
+
 ## Technical Roadmap Priorities (in order)
 1. **Containment & Polish** (current) — Everything 100% in root, no leaks.
 2. **Tour/Gig Tools** — `tour-find`, event planning scripts, harm reduction presets.
 3. **Avaturn + Visuals** — Reactive characters tied to workstation regions + audio features.
-4. **MIDI Auto-Map** — Full auto discovery + adaptive mapping.
+4. **AI DJ Personalities + HyperFrames** — 111+ music styles + customizable single-name DJs (Neon, Vapor, etc.) for autonomous sets, chat, and promotional "Rex" interactive videos using Grok TTS + HeyGen.
+5. **MIDI Auto-Map** — Full auto discovery + adaptive mapping.
 5. **Chat Control** — Real Kick/Twitch listeners feeding prompts/regenerations.
 6. **Monetization Layer** — Simple royalty metadata + collective sharing in sessions.
 7. **Event Deployment** — One-command "install autonomous system at venue" (with avatars, multi-performer support).

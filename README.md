@@ -66,6 +66,15 @@ The workstation is designed for real performances. See:
 - `docs/LAUNCH_AND_STREAMING_STRATEGY.md`
 - `uv run foragedj stream-prep --obs --twitch`
 
+**Launch Readiness**
+
+Everything is consolidated, audited, and ready.
+
+- Master checklist: `docs/LAUNCH_CHECKLIST.md`
+- Full vision + tour plan: `docs/ROADMAP.md`
+- Backup script: `./scripts/backup_forage_dj.sh` (run this regularly)
+- Autonomous tools: `rave-prep`, `swarm-distribute`, `tour-find`, etc.
+
 **Try the OS interface right now:**
 ```bash
 uv run python -m foragedj.os

@@ -1,0 +1,61 @@
+version: "3.8"
+
+# Sonic Forage Autonomous Deployment
+# Example scheduled autonomous session:
+#
+#   docker compose -f docker/docker-compose.yml up --build
+#
+# For a real scheduled show, combine with host cron or a lightweight scheduler:
+#   0 19 * * * cd /mnt/z/IMF2045/forage-dj && docker compose -f docker/docker-compose.yml up --abort-on-container-exit
+#
+# This gives the container ~30-45 minutes to load heavy models before the 8pm set.
+
+services:
+  forage-dj:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: forage-dj:latest
+    container_name: forage-dj-autonomous
+    restart: "no"                    # We control lifetime via entrypoint + host scheduler
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      # === Scheduling for autonomous sessions ===
+      # Set SHOW_TIME to when the actual performance should start (24h format)
+      - SHOW_TIME=20:00
+      - BOOT_EARLY_MINUTES=45         # Give plenty of time for model loading + generation
+
+      # Optional: pass specific autonomous command
+      # The entrypoint will run this after the boot window
+      # Example for a full autonomous set + seed bombing:
+      # - CMD_OVERRIDE=swarm-distribute --input sessions/TonightShow --mode full --seed-bomb
+
+    volumes:
+      # CRITICAL: Mount the entire project from the large Z: drive
+      # This gives the container access to all checkpoints, sessions, generated libraries, etc.
+      - /mnt/z/IMF2045/forage-dj:/workspace/forage-dj:rw
+
+      # Optional: persistent logs outside the main tree
+      - /mnt/z/IMF2045/forage-dj-logs:/var/log/forage-dj
+
+    # Give the container time to load huge models
+    shm_size: "2gb"
+
+    # Uncomment if you want to keep the container alive after the set for inspection
+    # stdin_open: true
+    # tty: true
+
+    command: >
+      swarm-distribute
+      --input sessions/Autonomous_Badass_Test_Session
+      --mode full
+      --seed-bomb
+
+# Example host cron for nightly autonomous shows:
+# 30 19 * * * cd /mnt/z/IMF2045/forage-dj && docker compose -f docker/docker-compose.yml up --abort-on-container-exit --rm
