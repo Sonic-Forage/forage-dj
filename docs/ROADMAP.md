@@ -74,7 +74,8 @@ This is how we turn one person's creative output into a self-replicating, royalt
 2. **Tour/Gig Tools** — `tour-find`, event planning scripts, harm reduction presets.
 3. **Avaturn + Visuals** — Reactive characters tied to workstation regions + audio features.
 4. **AI DJ Personalities + HyperFrames** — 111+ music styles + customizable single-name DJs (Neon, Vapor, etc.) for autonomous sets, chat, and promotional "Rex" interactive videos using Grok TTS + HeyGen.
-5. **MIDI Auto-Map** — Full auto discovery + adaptive mapping.
+5. **OpenPets Desktop Mini DJ Companions** — Turn personalities into cute desktop pets (via https://github.com/alvinunreal/openpets). Side panel that chills, reacts to music/playback, click to talk (Grok TTS), helps evaluate tracks and suggest prompts. Perfect visual companion for long sessions and events.
+6. **MIDI Auto-Map** — Full auto discovery + adaptive mapping.
 5. **Chat Control** — Real Kick/Twitch listeners feeding prompts/regenerations.
 6. **Monetization Layer** — Simple royalty metadata + collective sharing in sessions.
 7. **Event Deployment** — One-command "install autonomous system at venue" (with avatars, multi-performer support).
