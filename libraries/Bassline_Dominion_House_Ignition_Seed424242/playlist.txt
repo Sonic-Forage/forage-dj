@@ -1,6 +1,6 @@
 # Bassline Dominion - House Ignition (Seed 424242)
 # forage-dj setlist | locked seed 424242 | 6 tracks
-# generated_at: 2026-05-30T18:05:37.055552Z
+# generated_at: 2026-05-30T21:39:39.699883+00:00
 # manifest: setlists/bassline_dominion_seed424242.yaml
 #
 # SIMPLE PLAYLIST - drag folder or this list into your DJ software.

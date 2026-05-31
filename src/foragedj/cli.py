@@ -89,8 +89,12 @@ def cmd_mix(args: argparse.Namespace) -> None:
 def cmd_midi_learn(args: argparse.Namespace) -> None:
     from .hardware.midi import get_controller
     ctrl = get_controller()
-    ctrl.learn(args.control or "volume")
-    print("MIDI Learn mode stub — see hardware/midi.py")
+    # Use the actual method name that exists on MidiMapper
+    if hasattr(ctrl, "start_learn"):
+        ctrl.start_learn(args.control or "volume")
+    else:
+        ctrl.learn(args.control or "volume")  # fallback if someone adds learn() later
+    print("MIDI Learn mode — move the hardware control now (see hardware/midi.py for implementation)")
 
 
 def cmd_generate_setlist(args: argparse.Namespace) -> None:
@@ -403,8 +407,10 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
-if __name__ == "__main__":
-    sys.exit(main())
+# =============================================================================
+# ALL COMMAND HANDLERS (hoisted here so build_parser + `python -m` + health checks work)
+# Previously many were defined after the `if __name__` guard — causing NameError on direct execution.
+# =============================================================================
 
 def cmd_os(args: argparse.Namespace) -> None:
     """Boot the full retro OS interface."""
@@ -442,7 +448,7 @@ def cmd_split_stems(args: argparse.Namespace) -> None:
     print("   Use vocals.wav for RVC / further enhancement, drums/bass for remixing.")
 
 
-# === Workstation (Ableton-style editing, regenerate, inpaint) stubs ===
+# === Workstation (Ableton-style editing, regenerate, inpaint) ===
 
 def cmd_workstation_new(args: argparse.Namespace) -> None:
     from .workstation import create_session
@@ -515,6 +521,33 @@ def cmd_stream_prep(args: argparse.Namespace) -> None:
     print("📺 Sonic Forage — Stream Prep Mode")
     print("=" * 50)
     print("\nRecommended launch for streams:")
+
+
+# === Remaining referenced handlers (live, visualizer, osc, tag, rave, swarm, player, personalities) ===
+# These were previously only defined after the if __name__ guard.
+
+def cmd_live(args: argparse.Namespace) -> None:
+    print("🚀 Live Autonomous DJ mode")
+    print(f"   Manifest: {args.manifest}")
+    print(f"   Lookahead: {args.lookahead}  Realtime: {args.realtime}")
+    print("\nReal engine in src/foragedj/mixer.py + audio_gen background generation.")
+    print("For now run the full OS (foragedj os) or use generate-setlist + play-library as the walk-away workflow.")
+    print("Full lookahead live coming in next agent iteration.")
+
+
+def cmd_visualizer(args: argparse.Namespace) -> None:
+    from .visualizer import run_visualizer
+    print("👁️ Launching terminal waveform visualizer...")
+    run_visualizer()
+
+
+def cmd_osc_resolume(args: argparse.Namespace) -> None:
+    from .hardware.osc import create_resolume_bridge
+    print(f"🌉 Starting OSC Resolume bridge → {args.ip}:{args.port}")
+    bridge = create_resolume_bridge(resolume_ip=args.ip, resolume_port=args.port)
+    bridge.start()
+    print("Bridge running (Ctrl-C to stop). See hardware/osc.py for Resolume mapping examples.")
+
     print("  uv run foragedj os                 # Boot the retro OS (great visuals)")
     print("  uv run foragedj workstation-view <session>   # Show the arrangement live")
     print("  uv run foragedj live --manifest ... --lookahead 2")
@@ -704,28 +737,5 @@ def cmd_dj_personalities(args: argparse.Namespace) -> None:
         print(p.get_prompt_fragment())
 
 
-# === STUBS for previously referenced commands (live, visualizer, osc) ===
-# These were declared in the parser but the function bodies had drifted in prior edits.
-# Real implementations live in mixer.py / visualizer.py / hardware/osc.py — these just give good UX.
-
-def cmd_live(args: argparse.Namespace) -> None:
-    print("🚀 Live Autonomous DJ mode")
-    print(f"   Manifest: {args.manifest}")
-    print(f"   Lookahead: {args.lookahead}  Realtime: {args.realtime}")
-    print("\nReal engine in src/foragedj/mixer.py + audio_gen background generation.")
-    print("For now run the full OS (foragedj os) or use generate-setlist + play-library as the walk-away workflow.")
-    print("Full lookahead live coming in next agent iteration.")
-
-
-def cmd_visualizer(args: argparse.Namespace) -> None:
-    from .visualizer import run_visualizer
-    print("👁️ Launching terminal waveform visualizer...")
-    run_visualizer()
-
-
-def cmd_osc_resolume(args: argparse.Namespace) -> None:
-    from .hardware.osc import create_resolume_bridge
-    print(f"🌉 Starting OSC Resolume bridge → {args.ip}:{args.port}")
-    bridge = create_resolume_bridge(resolume_ip=args.ip, resolume_port=args.port)
-    bridge.start()
-    print("Bridge running (Ctrl-C to stop). See hardware/osc.py for Resolume mapping examples.")
+# (All command handlers are now hoisted above build_parser for correct module load order.
+# This fixes `python -m foragedj.cli` and the health.py doctor check.)

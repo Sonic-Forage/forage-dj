@@ -1,0 +1,116 @@
+{
+  "name": "Test Generation Mix - Small + Medium + SFX",
+  "seed": 424242,
+  "manifest_path": "setlists/test_generation_mix.yaml",
+  "library_dir": "libraries/Test_Generation_Mix_Small_Medium_SFX_Seed424242",
+  "generated_at": "2026-05-30T21:39:47.165042+00:00",
+  "total_tracks": 3,
+  "safety_note": "Public-safe rave tool \u2014 harm reduction first. forage-dj v0.1.0. Prompt provenance required.",
+  "tracks": [
+    {
+      "id": "01",
+      "prompt": "driving bass house, rolling 808 bassline, crisp drums, 128bpm dark warehouse energy",
+      "duration": 30,
+      "model": "small-music",
+      "seed": 424242,
+      "file": "01_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T21:39:47.162295+00:00"
+    },
+    {
+      "id": "02",
+      "prompt": "melodic techno breakdown with emotional pads and driving bass, 128bpm",
+      "duration": 45,
+      "model": "medium",
+      "seed": 424242,
+      "file": "02_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T21:39:47.163666+00:00"
+    },
+    {
+      "id": "03",
+      "prompt": "heavy industrial impact, metallic resonance, cinematic whoosh, short dramatic sound effect",
+      "duration": 8,
+      "model": "small-sfx",
+      "seed": 424242,
+      "file": "03_424242.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "camelot": "8A",
+      "generated_at": "2026-05-30T21:39:47.164927+00:00"
+    }
+  ],
+  "harmonic_suggestions": {
+    "01": [
+      "02",
+      "03"
+    ],
+    "02": [
+      "01",
+      "03"
+    ],
+    "03": [
+      "01",
+      "02"
+    ]
+  },
+  "energy_estimates": {
+    "01": 0.52,
+    "02": 0.22,
+    "03": 0.64
+  },
+  "recommended_transitions": {
+    "01": [
+      {
+        "to": "03",
+        "reason": "Camelot 8A\u21928A + energy steady",
+        "score": 1.13,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.12
+      },
+      {
+        "to": "02",
+        "reason": "Camelot 8A\u21928A + energy drop/break",
+        "score": 0.82,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.3
+      }
+    ],
+    "02": [
+      {
+        "to": "01",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 1.02,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.3
+      },
+      {
+        "to": "03",
+        "reason": "Camelot 8A\u21928A + energy build",
+        "score": 0.95,
+        "bpm_delta": 0.0,
+        "energy_delta": 0.42
+      }
+    ],
+    "03": [
+      {
+        "to": "01",
+        "reason": "Camelot 8A\u21928A + energy steady",
+        "score": 0.93,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.12
+      },
+      {
+        "to": "02",
+        "reason": "Camelot 8A\u21928A + energy drop/break",
+        "score": 0.75,
+        "bpm_delta": 0.0,
+        "energy_delta": -0.42
+      }
+    ]
+  }
+}

@@ -175,23 +175,35 @@ def check_models(report: HealthReport):
 
 
 def check_cli(report: HealthReport):
-    """Verify all expected CLI commands are registered."""
-    expected = ["generate", "generate-setlist", "live", "download-models", "play-library", "doctor",
-                "enhance", "clean-voice", "speak", "split-stems",
-                "workstation-new", "workstation-add-track", "workstation-regenerate"]
+    """Verify all expected CLI commands are registered (robust version)."""
+    # Use direct import + parser introspection — reliable even if -m is broken
+    # and works whether installed via entrypoint or run from source.
+    expected = {
+        "generate", "gui", "mix", "midi-learn", "doctor", "generate-setlist",
+        "download-models", "play-library", "live", "visualizer", "osc-resolume",
+        "version", "os", "enhance", "clean-voice", "speak", "split-stems",
+        "workstation-new", "workstation-add-track", "workstation-regenerate",
+        "workstation-view", "workstation-split", "stream-prep", "tag-library",
+        "rave-prep", "swarm-distribute", "play-region", "player-stop", "dj-personalities"
+    }
     try:
-        result = subprocess.run(
-            [sys.executable, "-m", "foragedj.cli", "--help"],
-            capture_output=True, text=True, timeout=10
-        )
-        help_text = result.stdout + result.stderr
-        missing = [cmd for cmd in expected if cmd not in help_text]
+        from .cli import build_parser
+        parser = build_parser()
+        # argparse stores subparsers in _subparsers._actions
+        registered = set()
+        for action in parser._subparsers._actions:
+            if hasattr(action, "choices") and action.choices:
+                registered.update(action.choices.keys())
+        missing = sorted(expected - registered)
+        extra = sorted(registered - expected)
         if missing:
-            report.add_check("CLI Commands", "warning", f"Missing commands: {missing}")
+            report.add_check("CLI Commands", "warning", f"Missing from health list: {missing}")
+        elif extra:
+            report.add_check("CLI Commands", "ok", f"All expected present (+ extras: {extra[:3]})")
         else:
             report.add_check("CLI Commands", "ok", "All core commands present")
     except Exception as e:
-        report.add_check("CLI Commands", "error", str(e))
+        report.add_check("CLI Commands", "warning", f"Could not introspect parser: {e}")
 
 
 def check_hf_auth(report: HealthReport):

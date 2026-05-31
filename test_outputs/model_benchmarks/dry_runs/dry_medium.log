@@ -1,0 +1,3 @@
+🎵 Generating: 'test prompt for medium speed benchmark 128bpm energetic'  seed=424242  dur=15.0s  model=medium
+   (dry run — no actual generation)
+   Would call generate_track(...) and save inside the project (generated/ on Z: drive)

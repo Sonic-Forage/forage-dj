@@ -1,0 +1,23 @@
+# Bassline Dominion - Alternate Universe (Seed 777777)
+# forage-dj setlist | locked seed 777777 | 6 tracks
+# generated_at: 2026-05-30T21:40:39.821565+00:00
+# manifest: setlists/bassline_dominion_seed777777.yaml
+#
+# SIMPLE PLAYLIST - drag folder or this list into your DJ software.
+# Files are numbered in the intended performance / energy arc order.
+# See library.json for full BPM, Camelot keys, energy estimates, and transition ideas.
+#
+01_777777.wav	# 01 | 128bpm Am/8A | TrackType: Music, driving bass house, rolling 80
+02_777777.wav	# 02 | 128bpm Am/8A | TrackType: Music, bass house drop with heavy sub
+03_777777.wav	# 03 | 128bpm Am/8A | uplifting bass house breakdown, emotional pads,
+04_777777.wav	# 04 | 128bpm Am/8A | hard bass house drop, distorted 808 bass, indust
+05_777777.wav	# 05 | 128bpm Am/8A | TrackType: Music, groovy bass house with funky b
+06_777777.wav	# 06 | 128bpm Am/8A | massive bass house finale, huge rolling bass, eu
+
+# === Top transition recommendations (from library.json) ===
+# 01 → 02: Camelot 8A→8A + energy build
+# 02 → 04: Camelot 8A→8A + energy build
+# 03 → 05: Camelot 8A→8A + energy steady
+# 04 → 06: Camelot 8A→8A + energy steady
+
+# Safety: Public-safe rave tool — harm reduction first. forage-dj v0.1.0. Prompt provenance required.

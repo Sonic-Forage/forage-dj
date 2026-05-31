@@ -77,3 +77,7 @@ hf-cache.env
 # Generated
 generated/
 logs/
+.grok/hf-token.env
+.grok/hf-token.env
+/.grok
+.grok/hf-token.env

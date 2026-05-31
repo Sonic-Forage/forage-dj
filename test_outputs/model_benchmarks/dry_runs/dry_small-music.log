@@ -1,0 +1,3 @@
+🎵 Generating: 'test prompt for small-music speed benchmark 128bpm energetic'  seed=424242  dur=15.0s  model=small-music
+   (dry run — no actual generation)
+   Would call generate_track(...) and save inside the project (generated/ on Z: drive)

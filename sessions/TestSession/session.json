@@ -1,0 +1,43 @@
+{
+  "name": "TestSession",
+  "created": "2026-05-30T21:40:29.569264+00:00",
+  "metadata": {},
+  "tracks": [
+    {
+      "id": "track_01",
+      "name": "base_60s",
+      "source_path": "/mnt/z/IMF2045/forage-dj/checkpoints/loras/loopwyrm-sa3-lora-smoke-v0-1/samples/base_60s.wav",
+      "bpm": 128.0,
+      "key": "Am",
+      "regions": [
+        {
+          "id": "reg_001",
+          "start": 0.0,
+          "end": 40.0,
+          "prompt": "Auto section 1",
+          "seed": 42,
+          "notes": "",
+          "locked": false
+        },
+        {
+          "id": "reg_002",
+          "start": 40.0,
+          "end": 80.0,
+          "prompt": "Auto section 2",
+          "seed": 43,
+          "notes": "",
+          "locked": false
+        },
+        {
+          "id": "reg_003",
+          "start": 80.0,
+          "end": 120.0,
+          "prompt": "Auto section 3",
+          "seed": 44,
+          "notes": "",
+          "locked": false
+        }
+      ]
+    }
+  ]
+}

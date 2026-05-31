@@ -1,0 +1,19 @@
+# Test Generation Mix - Small + Medium + SFX
+# forage-dj setlist | locked seed 424242 | 3 tracks
+# generated_at: 2026-05-30T21:39:47.165042+00:00
+# manifest: setlists/test_generation_mix.yaml
+#
+# SIMPLE PLAYLIST - drag folder or this list into your DJ software.
+# Files are numbered in the intended performance / energy arc order.
+# See library.json for full BPM, Camelot keys, energy estimates, and transition ideas.
+#
+01_424242.wav	# 01 | 128bpm Am/8A | driving bass house, rolling 808 bassline, crisp
+02_424242.wav	# 02 | 128bpm Am/8A | melodic techno breakdown with emotional pads and
+03_424242.wav	# 03 | 128bpm Am/8A | heavy industrial impact, metallic resonance, cin
+
+# === Top transition recommendations (from library.json) ===
+# 01 → 03: Camelot 8A→8A + energy steady
+# 02 → 01: Camelot 8A→8A + energy build
+# 03 → 01: Camelot 8A→8A + energy steady
+
+# Safety: Public-safe rave tool — harm reduction first. forage-dj v0.1.0. Prompt provenance required.

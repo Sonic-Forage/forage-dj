@@ -1,9 +1,9 @@
 {
-  "name": "Bassline Dominion - House Ignition (Seed 424242)",
-  "seed": 424242,
-  "manifest_path": "setlists/bassline_dominion_seed424242.yaml",
-  "library_dir": "libraries/Bassline_Dominion_House_Ignition_Seed424242",
-  "generated_at": "2026-05-30T21:39:39.699883+00:00",
+  "name": "Bassline Dominion - Alternate Universe (Seed 777777)",
+  "seed": 777777,
+  "manifest_path": "setlists/bassline_dominion_seed777777.yaml",
+  "library_dir": "libraries/Bassline_Dominion_Alternate_Universe_Seed777777",
+  "generated_at": "2026-05-30T21:40:39.821565+00:00",
   "total_tracks": 6,
   "safety_note": "Public-safe rave tool \u2014 harm reduction first. forage-dj v0.1.0. Prompt provenance required.",
   "tracks": [
@@ -12,72 +12,72 @@
       "prompt": "TrackType: Music, driving bass house, rolling 808 bassline, crisp UKG drums, energetic festival stabs, 128 BPM, dark warehouse energy",
       "duration": 90,
       "model": "small-music",
-      "seed": 424242,
-      "file": "01_424242.wav",
+      "seed": 777777,
+      "file": "01_777777.wav",
       "bpm": 128.0,
       "key": "Am",
       "camelot": "8A",
-      "generated_at": "2026-05-30T21:39:39.693085+00:00"
+      "generated_at": "2026-05-30T21:40:39.813780+00:00"
     },
     {
       "id": "02",
       "prompt": "TrackType: Music, bass house drop with heavy sub bass, punchy kicks, shuffled hi-hats, rising synth stabs, 128 BPM, high energy",
       "duration": 75,
       "model": "small-music",
-      "seed": 424242,
-      "file": "02_424242.wav",
+      "seed": 777777,
+      "file": "02_777777.wav",
       "bpm": 128.0,
       "key": "Am",
       "camelot": "8A",
-      "generated_at": "2026-05-30T21:39:39.694340+00:00"
+      "generated_at": "2026-05-30T21:40:39.815326+00:00"
     },
     {
       "id": "03",
       "prompt": "uplifting bass house breakdown, emotional pads, rolling bass, crisp percussion, 128 BPM, festival mainstage moment",
       "duration": 60,
       "model": "small-music",
-      "seed": 424242,
-      "file": "03_424242.wav",
+      "seed": 777777,
+      "file": "03_777777.wav",
       "bpm": 128.0,
       "key": "Am",
       "camelot": "8A",
-      "generated_at": "2026-05-30T21:39:39.695677+00:00"
+      "generated_at": "2026-05-30T21:40:39.816872+00:00"
     },
     {
       "id": "04",
       "prompt": "hard bass house drop, distorted 808 bass, industrial kicks, vocal chops, 130 BPM, peak time energy",
       "duration": 80,
       "model": "small-music",
-      "seed": 424242,
-      "file": "04_424242.wav",
+      "seed": 777777,
+      "file": "04_777777.wav",
       "bpm": 128.0,
       "key": "Am",
       "camelot": "8A",
-      "generated_at": "2026-05-30T21:39:39.697178+00:00"
+      "generated_at": "2026-05-30T21:40:39.818438+00:00"
     },
     {
       "id": "05",
       "prompt": "TrackType: Music, groovy bass house with funky bassline, swinging drums, filtered stabs, 126 BPM, late night dancefloor",
       "duration": 85,
       "model": "small-music",
-      "seed": 424242,
-      "file": "05_424242.wav",
+      "seed": 777777,
+      "file": "05_777777.wav",
       "bpm": 128.0,
       "key": "Am",
       "camelot": "8A",
-      "generated_at": "2026-05-30T21:39:39.698486+00:00"
+      "generated_at": "2026-05-30T21:40:39.819885+00:00"
     },
     {
       "id": "06",
       "prompt": "massive bass house finale, huge rolling bass, euphoric supersaw stabs, driving drums, 128 BPM, hands in the air moment",
       "duration": 90,
       "model": "small-music",
-      "seed": 424242,
-      "file": "06_424242.wav",
+      "seed": 777777,
+      "file": "06_777777.wav",
       "bpm": 128.0,
       "key": "Am",
       "camelot": "8A",
-      "generated_at": "2026-05-30T21:39:39.699726+00:00"
+      "generated_at": "2026-05-30T21:40:39.821421+00:00"
     }
   ],
   "harmonic_suggestions": {
