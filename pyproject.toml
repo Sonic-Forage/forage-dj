@@ -37,6 +37,10 @@ stems = ["demucs>=4.0.0"]
 # Note: Kokoro also needs system package `espeak-ng` for phonemization.
 audio-tools = ["kokoro>=0.9.0"]  # soundfile is now core for analysis/workstation reliability
 
+# Generation extras (for the reliable public "open" / stable-audio-open-1.0 path via diffusers)
+# Usage: uv pip install -e ".[generation]"   or just `uv pip install diffusers` (recommended for now)
+generation = ["diffusers>=0.29.0"]
+
 # MIDI/OSC controllers + Resolume integration
 controllers = ["python-osc>=1.8.0"]
 
@@ -50,6 +54,12 @@ os = [
 # This is intentionally NOT listed here. The official library is not on PyPI.
 # See scripts/setup.sh and docs/ for the recommended clone + editable install flow.
 # Runtime code in audio_gen.py will give a precise actionable error + instructions.
+
+# NOTE on stable-audio-open (new recommended default "open" model, Track 3):
+# Uses diffusers.StableAudioPipeline (standard, reliable, no custom T5Gemma conditioner headaches).
+# Add via: uv pip install diffusers
+# (or add "diffusers>=0.29.0" to your uv sync extras). The open model snapshot lands in checkpoints/stable-audio-open-1.0/
+# per paths.py Z: rules. See audio_gen.py for the loader.
 
 [project.scripts]
 foragedj = "foragedj.cli:main"

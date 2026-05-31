@@ -241,6 +241,7 @@ def check_models_detailed(report: HealthReport):
         "small-sfx": (CHECKPOINTS_DIR / "stable-audio-3-small-sfx").exists(),
         "medium": (CHECKPOINTS_DIR / "stable-audio-3-medium").exists(),
         "optimized": (CHECKPOINTS_DIR / "stable-audio-3-optimized").exists(),
+        "open (stable-audio-open-1.0)": (CHECKPOINTS_DIR / "stable-audio-open-1.0").exists(),
     }
 
     # Autoencoders
@@ -271,7 +272,7 @@ def check_models_detailed(report: HealthReport):
     has_generated = generated_dir.exists() and any(generated_dir.iterdir())
 
     if present_core or present_same or sonic_loras or enhancer_count or voice_count or has_sessions or has_generated:
-        msg = (f"Core: {len(present_core)}/4 | LoRAs: {len(sonic_loras)} | "
+        msg = (f"Core: {len(present_core)}/5 | LoRAs: {len(sonic_loras)} | "
                f"Enhancers: {enhancer_count}/3 | Voice: {voice_count} | "
                f"Sessions: {'yes' if has_sessions else 'no'} | Generated: {'yes' if has_generated else 'no'}")
         report.add_check("Models & Workstation (sessions + generated)", "ok", msg)

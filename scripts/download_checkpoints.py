@@ -2,7 +2,7 @@
 """
 forage-dj Model Checkpoint Downloader
 
-Downloads the required Stable Audio 3 models + autoencoders + NEW:
+Downloads the required Stable Audio 3 models + autoencoders + stable-audio-open-1.0 (new recommended default for reliable generation) + NEW:
   - Audio enhancement / super-resolution (AudioSR + FlashSR variants)
   - Voice quality tools (LocalVQE for real-time AEC/denoise/dereverb)
   - TTS / vocal synthesis (Kokoro-82M lightweight high-quality)
@@ -36,11 +36,13 @@ PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 CHECKPOINTS_DIR = PROJECT_ROOT / "checkpoints"
 
 # Core Stable Audio 3 models + autoencoders (user requested)
+# + stable-audio-open-1.0 as the reliable public default (Track 3 in generation reliability plan)
 CORE_MODELS: List[Tuple[str, str]] = [
     ("stabilityai/stable-audio-3-small-music", "stable-audio-3-small-music"),
     ("stabilityai/stable-audio-3-small-sfx",   "stable-audio-3-small-sfx"),
     ("stabilityai/stable-audio-3-medium",      "stable-audio-3-medium"),
     ("stabilityai/stable-audio-3-optimized",   "stable-audio-3-optimized"),
+    ("stabilityai/stable-audio-open-1.0",      "stable-audio-open-1.0"),
     ("stabilityai/SAME-S",                     "SAME-S"),
     ("stabilityai/SAME-L",                     "SAME-L"),
 ]

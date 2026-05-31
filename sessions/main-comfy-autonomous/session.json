@@ -1,0 +1,16 @@
+{
+  "name": "ComfyUI-First Autonomous DJ (Main)",
+  "branch": "main",
+  "goal": "Make ComfyUI (starting with ACE-Step 1.5 XL Turbo) the rock-solid primary generation engine for ForageDJ. Support remote pods + local servers. Enable high-quality autonomous/background music generation while the user codes or vibes.",
+  "tasks": [
+    "Finalize deprecation of Python Stable Audio backend on main (clear docs + branch pointers).",
+    "Strengthen general ComfyUI workflow execution (beyond simple title injection).",
+    "Make remote ComfyUI server configuration (RunPod, Vast, Tailscale, etc.) first-class and easy.",
+    "Build background/autonomous generation queue system that can run while user works.",
+    "Integrate generated tracks seamlessly into the terminal radio and player experiences.",
+    "Evolve the forage-comfy skill into the agent's primary interface for this new world."
+  ],
+  "autonomous_mode": "high_priority_ongoing",
+  "priority": "critical",
+  "owner": "core_swarm"
+}

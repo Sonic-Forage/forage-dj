@@ -56,7 +56,8 @@ def cmd_doctor(args: argparse.Namespace) -> None:
 def cmd_generate(args: argparse.Namespace) -> None:
     from .audio_gen import generate_track
 
-    print(f"🎵 Generating: '{args.prompt}'  seed={args.seed}  dur={args.duration}s  model={args.model}")
+    backend = getattr(args, "backend", None) or "config-default"
+    print(f"🎵 Generating: '{args.prompt}'  seed={args.seed}  dur={args.duration}s  model={args.model}  backend={backend} (comfy = primary via ACE-Step/ComfyUI)")
     if args.dry:
         print("   (dry run — no actual generation)")
         print("   Would call generate_track(...) and save inside the project (generated/ on Z: drive)")
@@ -68,6 +69,7 @@ def cmd_generate(args: argparse.Namespace) -> None:
             seed=args.seed,
             duration=args.duration,
             model=args.model,
+            backend=getattr(args, "backend", None),
         )
         print(f"✅ Saved: {path}")
     except Exception as e:
@@ -221,7 +223,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("prompt", help="Text prompt, e.g. 'uplifting trance breakdown 138bpm'")
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--duration", type=float, default=60.0)
-    p.add_argument("--model", default="small-music", choices=["small-music", "small-sfx", "medium"])
+    p.add_argument("--model", default="open", choices=["open", "stable-audio-open", "stable-audio-open-1.0", "small-music", "small-sfx", "medium"])
+    p.add_argument("--backend", default=None, choices=["python", "comfy"], help="Inference backend (comfy is now the primary path using ACE-Step etc. via ComfyUI. 'python' is legacy and lives on the legacy/stable-audio-python branch)")
     p.add_argument("--dry", action="store_true", help="Print what would happen without calling the model")
     p.set_defaults(func=cmd_generate)
 

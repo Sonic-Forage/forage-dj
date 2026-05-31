@@ -167,8 +167,9 @@ def ensure_data_dirs() -> dict:
     sessions = root / "sessions"
     sets = PROJECT_ROOT / "setlists"
     test_out = PROJECT_ROOT / "test_outputs"
+    comfy_out = get_comfy_output_dir()
 
-    for d in [root, checkpoints, libs, generated, sessions, sets, test_out]:
+    for d in [root, checkpoints, libs, generated, sessions, sets, test_out, comfy_out]:
         d.mkdir(parents=True, exist_ok=True)
 
     return {
@@ -178,7 +179,14 @@ def ensure_data_dirs() -> dict:
         "generated": str(generated),
         "sessions": str(sessions),
         "hf_home": str(get_hf_home()),
+        "comfy_workflows": str(get_comfy_workflows_dir()),
+        "comfy_output": str(comfy_out),
     }
+
+
+def get_generated_dir() -> Path:
+    """Directory for raw generated tracks and variations."""
+    return get_data_root() / "generated"
 
 
 def get_sessions_dir() -> Path:
@@ -186,9 +194,32 @@ def get_sessions_dir() -> Path:
     return get_data_root() / "sessions"
 
 
-def get_generated_dir() -> Path:
-    """Directory for raw generated tracks and variations."""
-    return get_data_root() / "generated"
+def get_comfy_workflows_dir() -> Path:
+    """Directory containing ComfyUI workflow JSON files used by ForageDJ."""
+    return PROJECT_ROOT / "workflows" / "comfy"
+
+
+def get_comfy_output_dir() -> Path:
+    """
+    Directory where ComfyUI writes generated audio files.
+
+    Priority:
+    1. COMFYUI_OUTPUT_DIR environment variable (explicit override)
+    2. <data_root>/comfyui_output
+    3. Project-local comfyui_output/ (legacy layout)
+    """
+    env_dir = os.environ.get("COMFYUI_OUTPUT_DIR")
+    if env_dir:
+        return Path(env_dir).expanduser().resolve()
+
+    root = get_data_root()
+    candidate = root / "comfyui_output"
+    if candidate.exists() or str(root).startswith(str(PROJECT_ROOT)):
+        # Prefer data_root version when we control the layout
+        return candidate
+
+    # Legacy fallback next to the project
+    return PROJECT_ROOT / "comfyui_output"
 
 
 def write_paths_json(data_root: Optional[Path] = None, hf_home: Optional[Path] = None) -> Path:

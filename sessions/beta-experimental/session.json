@@ -1,0 +1,15 @@
+{
+  "name": "Beta / Experimental Features",
+  "branch": "beta",
+  "goal": "Safe space for wild experiments that may or may not graduate to main. Things like advanced multi-workflow chains, new model integrations, wild autonomous behaviors, experimental radio modes, etc.",
+  "tasks": [
+    "Experiment with running multiple ComfyUI workflows in parallel or chained pipelines for longer compositions.",
+    "Prototype 'vibe coding' mode: agent continuously generates background music tailored to what the user is currently working on.",
+    "Test new audio models or custom nodes as they appear in the ComfyUI ecosystem.",
+    "Explore more advanced terminal or visual radio interfaces.",
+    "Anything too risky or half-baked for main goes here first."
+  ],
+  "autonomous_mode": "high_creativity_high_risk",
+  "priority": "low_to_medium",
+  "owner": "experimental_swarm"
+}

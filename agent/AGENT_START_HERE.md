@@ -2,21 +2,36 @@
 
 **Welcome, autonomous builder.**
 
-This folder contains everything you need to build, test, and iterate on ForageDJ **completely autonomously**.
+This folder now points to specialized workspaces for different lines of work.
 
 ---
 
-## 🚀 MISSION
+## Current Primary Focus
 
-Build a working MVP of ForageDJ:
-- Prompt-to-track generation using Stable Audio 3 (small models)
-- 2-deck real-time mixer with EQ, filter, crossfader
-- Seed-controlled setlist generation (One Prompt List → Infinite Unique Sets)
-- Basic GUI (Dear PyGui or Gradio prototype)
-- Run and test on a potato machine (CPU-only)
-- Push working code back to main branch
+**ComfyUI-first autonomous music generation** (especially ACE-Step 1.5 XL Turbo).
 
-**Goal**: A runnable `uv run foragedj` that lets a user type a prompt, generate a track, and mix it live.
+See the dedicated workspace:
+
+**`agent/hermes-comfy-autonomous/`**
+
+This is the main folder a Hermes (or other capable remote) agent should use when working on the current direction.
+
+It contains:
+- Full context on the pivot away from Stable Audio Python
+- Branch strategy
+- What worked / what didn't
+- Current plans
+- Key workflows
+- How to work with remote or local ComfyUI servers
+- Open autonomous tasks
+
+---
+
+## Other Lines of Work
+
+- `legacy/stable-audio` branch → All old Stable Audio Python work (preserved)
+- `beta` branch → Experimental / high-risk ideas
+- The old content that used to be in this file has been superseded by the focused workspace above.
 
 ---
 
@@ -52,6 +67,7 @@ Perfect handoff point for swarm agents.
 - `agent/TESTING_GUIDE.md` — How to test everything locally
 - `agent/PROMPTS/` — Ready-to-use prompts for generation, debugging, and feature implementation
 - `docs/AGENTIC_BUILD_PLAN.md` — Original 5-phase master plan
+- `docs/AGENTIC_GENERATION_RELIABILITY_PLAN.md` — Critical: Current state + multi-track plan for making Stable Audio 3 "medium" (and reliable alternatives) actually work end-to-end from the local Z: checkpoint. Read this before touching audio_gen.py or generation.
 - `docs/ARCHITECTURE.md` — Technical architecture
 - `docs/FEATURES_SPEC.md` — Detailed feature list
 

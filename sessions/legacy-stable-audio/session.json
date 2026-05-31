@@ -1,0 +1,15 @@
+{
+  "name": "Legacy Stable Audio Preservation & Cleanup",
+  "branch": "legacy/stable-audio",
+  "goal": "Preserve and cleanly document all Stable Audio Python backend work, experiments, and related code so it is not lost. Make it easy for people who still want the old Python path to use it.",
+  "tasks": [
+    "Document the branch purpose in README and docs.",
+    "Clean up any broken imports or references that point to deleted code on main.",
+    "Tag or archive the most successful Stable Audio experiments.",
+    "Create a clear migration guide from legacy Python backend → ComfyUI.",
+    "Ensure all old models, LoRAs, and training configs are properly referenced."
+  ],
+  "autonomous_mode": "low_priority_preservation",
+  "priority": "medium",
+  "owner": "preservation_swarm"
+}

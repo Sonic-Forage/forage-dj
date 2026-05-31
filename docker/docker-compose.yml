@@ -59,3 +59,45 @@ services:
 
 # Example host cron for nightly autonomous shows:
 # 30 19 * * * cd /mnt/z/IMF2045/forage-dj && docker compose -f docker/docker-compose.yml up --abort-on-container-exit --rm
+
+  # =============================================================================
+  # ComfyUI - Dedicated inference server for Stable Audio models
+  # =============================================================================
+  # Run with:
+  #   docker compose -f docker/docker-compose.yml --profile comfy up -d comfyui
+  #
+  # Then open http://localhost:8188
+  # Install custom nodes via ComfyUI-Manager inside the UI:
+  #   - Anything related to "Stable Audio" or "StableAudioOpen"
+  #   - TensorRT / ONNX nodes (so you can use your optimized checkpoints)
+  #
+  # ForageDJ can then call this server via the ComfyUI API (or a thin wrapper).
+  comfyui:
+    image: yanwk/comfyui:latest-cu121
+    container_name: comfyui
+    restart: unless-stopped
+    profiles: ["comfy"]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    ports:
+      - "8188:8188"
+    volumes:
+      # Mount your Z: checkpoints (read-only is safest)
+      - /mnt/z/IMF2045/forage-dj/checkpoints:/comfyui/models/checkpoints:ro
+      # Output directory for generated audio (ForageDJ can watch or poll this)
+      - /mnt/z/IMF2045/forage-dj/comfyui_output:/comfyui/output
+      # Version-controlled workflows (load/save from the project folder inside ComfyUI)
+      - /mnt/z/IMF2045/forage-dj/workflows/comfy:/comfyui/user/default/workflows:rw
+      # Persistent custom nodes
+      - comfyui_custom_nodes:/comfyui/custom_nodes
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    command: --listen --port 8188 --preview-method none
+
+volumes:
+  comfyui_custom_nodes:
